@@ -21,6 +21,6 @@
     "homebridge": ">=0.2.0"
   },
   "dependencies": {
-    "piface-node-12": ">=2.0"
+    "piface-node-12": ">=1.0"
   }
 }
