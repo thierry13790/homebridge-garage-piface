@@ -7,7 +7,7 @@ module.exports = function(homebridge) {
   Characteristic = homebridge.hap.Characteristic
   DoorState = homebridge.hap.Characteristic.CurrentDoorState
 
-  homebridge.registerAccessory("homebridge-gate-piface", "GatePiFace", GatePiFaceAccessory)
+  homebridge.registerAccessory("homebridge-gate-piface-dev", "GatePiFace", GatePiFaceAccessory)
 }
 
 function GatePiFaceAccessory(log, config) {
@@ -104,7 +104,7 @@ GatePiFaceAccessory.prototype = {
   },
 
   initService: function() {
-    this.gateDoorOpener = new Service.GateDoorOpener(this.name,this.name)
+    this.gateDoorOpener = new Service.GarageDoorOpener(this.name,this.name)
     this.currentDoorState = this.gateDoorOpener.getCharacteristic(DoorState)
     this.currentDoorState.on('get', this.getState.bind(this))
     this.targetDoorState = this.gateDoorOpener.getCharacteristic(Characteristic.TargetDoorState)

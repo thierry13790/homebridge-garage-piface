@@ -1,5 +1,5 @@
 {
-  "name": "homebridge-gate-piface-node-12",
+  "name": "homebridge-gate-piface-dev",
   "version": "0.1.4",
   "description": "Exposes a Gate accessory to HomeBridge that uses a RaspberryPi with PiFace board",
   "main": "index.js",
