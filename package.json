@@ -1,6 +1,6 @@
 {
   "name": "homebridge-garage-piface-node-12",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Exposes a garage door and/or a Gate accessory to HomeBridge that uses a RaspberryPi with PiFace board",
   "main": "index.js",
   "keywords": [
