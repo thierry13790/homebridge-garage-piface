@@ -1,6 +1,6 @@
 {
-			"accessory": "GaragePiFace",
-			"name": "Garage",
+			"accessory": "GatePiFace",
+			"name": "Gate",
 			"switchOutput": 0,
 			"switchPressTimeInMs": 1000,
 			"switchValue": 1,

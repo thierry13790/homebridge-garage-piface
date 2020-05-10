@@ -7,7 +7,7 @@ module.exports = function(homebridge) {
   Characteristic = homebridge.hap.Characteristic
   DoorState = homebridge.hap.Characteristic.CurrentDoorState
 
-  homebridge.registerAccessory("homebridge-gate-piface", "GaragePiFace", GaragePiFaceAccessory)
+  homebridge.registerAccessory("homebridge-gate-piface", "GatePiFace", GatePiFaceAccessory)
 }
 
 function GatePiFaceAccessory(log, config) {
