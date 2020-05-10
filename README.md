@@ -5,7 +5,7 @@ This plugin is suitable for any device as a garage door or a gate motor that nee
 
 This fork is adapted from [homebridge-garage-gate-opener](https://github.com/MForge/homebridge-garage-gate-opener) by [MForge.org](https://www.mforge.org/fr/2017/11/08/homebridge-controle-de-porte-de-garage-etou-de-portail-home-de-apple/)
 
-This fork is adapted from [homebridge-garage-piface] (https://github.com/LeJeko/homebridge-garage-piface) by LeJeko It add support for JNode 12
+This fork is adapted from [homebridge-garage-piface] (https://github.com/LeJeko/homebridge-garage-piface) by LeJeko It add support for JNode 12 and piface-node-12 [https://github.com/RickBullotta/piface-node-12]
 
 ## Requirement
 
