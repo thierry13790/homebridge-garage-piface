@@ -7,13 +7,13 @@ module.exports = function(homebridge) {
   Characteristic = homebridge.hap.Characteristic
   DoorState = homebridge.hap.Characteristic.CurrentDoorState
 
-  homebridge.registerAccessory("homebridge-garage-piface", "GaragePiFace", GaragePiFaceAccessory)
+  homebridge.registerAccessory("homebridge-gate-piface", "GaragePiFace", GaragePiFaceAccessory)
 }
 
-function GaragePiFaceAccessory(log, config) {
+function GatePiFaceAccessory(log, config) {
   this.log = log
   this.version = require('./package.json').version
-  log("GaragePiFaceAccessory version " + this.version)
+  log("GatePiFaceAccessory version " + this.version)
 
   this.name = config.name
   this.doorSwitchOutput = config.switchOutput
@@ -48,14 +48,14 @@ function GaragePiFaceAccessory(log, config) {
 
   if (!this.hasClosedSensor() && !this.hasOpenSensor()) {
       this.wasClosed = true //Set a valid initial state
-      log("NOTE: Neither Open nor Closed sensor is configured. Will be unable to determine what state the garage is in, and will rely on last known state.")
+      log("NOTE: Neither Open nor Closed sensor is configured. Will be unable to determine what state the gate is in, and will rely on last known state.")
   }
   log("Sensor Poll in ms: " + this.sensorPollInMs)
   log("Opens in seconds: " + this.doorOpensInSeconds)
   this.initService()
 }
 
-GaragePiFaceAccessory.prototype = {
+GatePiFaceAccessory.prototype = {
 
   determineCurrentDoorState: function() {
        if (this.isClosed()) {
@@ -104,10 +104,10 @@ GaragePiFaceAccessory.prototype = {
   },
 
   initService: function() {
-    this.garageDoorOpener = new Service.GarageDoorOpener(this.name,this.name)
-    this.currentDoorState = this.garageDoorOpener.getCharacteristic(DoorState)
+    this.gateDoorOpener = new Service.GateDoorOpener(this.name,this.name)
+    this.currentDoorState = this.gateDoorOpener.getCharacteristic(DoorState)
     this.currentDoorState.on('get', this.getState.bind(this))
-    this.targetDoorState = this.garageDoorOpener.getCharacteristic(Characteristic.TargetDoorState)
+    this.targetDoorState = this.gateDoorOpener.getCharacteristic(Characteristic.TargetDoorState)
     this.targetDoorState.on('set', this.setState.bind(this))
     this.targetDoorState.on('get', this.getTargetState.bind(this))
     var isClosed = this.isClosed()
@@ -117,7 +117,7 @@ GaragePiFaceAccessory.prototype = {
     this.infoService = new Service.AccessoryInformation()
     this.infoService
       .setCharacteristic(Characteristic.Manufacturer, "Opensource Community")
-      .setCharacteristic(Characteristic.Model, "RaspPi PiFace GarageDoor")
+      .setCharacteristic(Characteristic.Model, "RaspPi PiFace GateDoor")
       .setCharacteristic(Characteristic.SerialNumber, this.version)
   
     if (this.hasOpenSensor() || this.hasClosedSensor()) {
@@ -221,6 +221,6 @@ GaragePiFaceAccessory.prototype = {
   },
 
   getServices: function() {
-    return [this.infoService, this.garageDoorOpener]
+    return [this.infoService, this.gateDoorOpener]
   }
 }
