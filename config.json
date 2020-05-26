@@ -1,13 +1,13 @@
 {
 			"accessory": "GatePiFace",
-			"name": "Gate",
+			"name": "Portail",
 			"switchOutput": 0,
 			"switchPressTimeInMs": 1000,
 			"switchValue": 1,
 			"closedSensorInput": 1,
-			"closedSensorValue": 1,
+			"closedSensorValue": 0,
 			"openSensorInput": 0,
-			"openSensorValue": 1,
-			"pollInMs": 4000,
-			"opensInSeconds": 17.5
+			"openSensorValue": 0,
+			"pollInMs": 1000,
+			"opensInSeconds": 24 
 		}
